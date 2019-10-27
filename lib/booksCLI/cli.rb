@@ -1,26 +1,30 @@
 class BooksCLI::CLI
     def call
+        puts "Welcome to Book Search"
         start
     end
 
     def start
         puts "Search Google Books: "
-        #booksCLI::GoogleApi.new.set_info ? get info from api methods
         input = gets.strip.downcase
-        # search method - starts CLI
+        data = BooksCLI::GoogleApi.new(input)
+        
+        data.fetch_data
         show_list
-        options
+        # options
     end
 
     def show_list
         puts "Search Results:"
-        #map through info and display list with number
+        @books = BooksCLI::Books.all
+        @books.each.with_index(1) do |book, index|
+            puts "#{index}. Title: #{book.title}, Author(s): #{book.authors}, Publisher: #{book.publisher}"
         puts "Would you like to save a book to your reading list? (y/n)"
         input = gets.strip.downcase
         if input == "yes" || input == "y"
             save
         else
-            options
+            puts " need options"
         end
         # puts out list of books from query
         # option to save to database 
@@ -52,19 +56,19 @@ class BooksCLI::CLI
             end
         end
 
-    def options
-       #choice for new search or exit
-       puts "Enter 'new'for new search, 'view' to see library, 'exit' to leave program"
-       if input == "new"
-        start
-       elsif input == "view"
-        reading_list
-       else 
-        thanks
-       end
-    end
+    # def options
+    #    #choice for new search or exit
+    #    puts "Enter 'new'for new search, 'view' to see library, 'exit' to leave program"
+    #    if input == "new"
+    #     start
+    #    elsif input == "view"
+    #     reading_list
+    #    else 
+    #     thanks
+    #    end
+    # end
 
-    def thanks
-        puts "Thank you for visiting Google Books"
-    end
+    # def thanks
+    #     puts "Thank you for visiting Google Books"
+    # end
 end

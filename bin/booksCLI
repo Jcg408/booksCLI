@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+
 require "./lib/booksCLI"
+require 'dotenv'
+Dotenv.load
 
 BooksCLI::CLI.new.call

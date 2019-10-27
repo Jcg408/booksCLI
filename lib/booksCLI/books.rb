@@ -10,4 +10,6 @@ class BooksCLI::Books
     def self.all
         @@all
     end
+
+    
 end
