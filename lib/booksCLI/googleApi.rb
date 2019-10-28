@@ -4,7 +4,7 @@ require 'pry'
 class BooksCLI::GoogleApi
     attr_accessor :input
 
-    def initialize(input)
+    def initialize(input) #input from CLI class for search query.
         @input = input
     end
 

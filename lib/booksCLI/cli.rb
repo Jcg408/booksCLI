@@ -50,6 +50,7 @@ class BooksCLI::CLI
         puts "New Search? (type 'new')"
         puts " "
         puts "Exit program? (type 'exit')"
+        puts " "
         input = gets.strip.downcase
 
         case input # conditions for options input. Used case instead of if else format for cleaner code.
@@ -66,11 +67,13 @@ class BooksCLI::CLI
         end
     end
 
-    def show_list #return Reading List for books chosen. 
-       list = BooksCLI::Books.list 
+    def show_list #return Reading List for books chosen.
+        puts  "Reading List: "
+        puts " " 
+        list = BooksCLI::Books.list 
         list.each do |book| # iterate through list to show book list.
             puts " "
-            puts "#{book.title} - #{book.authors} - #{book.publisher}"
+            puts " #{book.title}, #{book.authors}, #{book.publisher}"
             puts " "
         end
         options #return back to options menu
