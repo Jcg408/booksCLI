@@ -1,7 +1,5 @@
-
 require 'httparty'
 require 'pry'
-
 
 class BooksCLI::GoogleApi
     attr_accessor :input
@@ -23,7 +21,5 @@ class BooksCLI::GoogleApi
             book.publisher = item["volumeInfo"]["publisher"]
           
         end
-     
     end
-   
 end
