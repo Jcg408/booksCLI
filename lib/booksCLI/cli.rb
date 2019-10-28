@@ -1,6 +1,6 @@
 class BooksCLI::CLI
     def call
-        puts "Welcome to Book Search"
+        puts "WELCOME TO BOOK SEARCH"
         puts "  "
         
         start
@@ -17,19 +17,18 @@ class BooksCLI::CLI
             puts "#{index}. Title: #{book.title}, 
                 Author: #{book.authors}, Publisher: #{book.publisher}"
         end
-        puts "Save a book to reading list? (Y/N)"
+        puts "Save a Book to Reading List? (Y/N)"
         input = gets.strip.downcase
         if input == "yes" || input == "y"
             save_book
         else
             options
         end
-       
-       
     end
 
     def save_book
-        puts "Enter book number to save."
+        puts " "
+        puts "Enter Line Number of Book: "
         input = gets.chomp.to_i
         if input >0 && input <=@books.size
             book = @books[input -1]
@@ -43,10 +42,13 @@ class BooksCLI::CLI
     end
     
     def options
-        puts "Choose Option"
-        puts "View Reading List? (enter 'list')"
-        puts "New Search? (enter 'new')"
-        puts "Exit program? (enter 'exit')"
+        puts "CHOOSE OPTION"
+        puts " "
+        puts "View Reading List? (type 'list')"
+        puts " "
+        puts "New Search? (type 'new')"
+        puts " "
+        puts "Exit program? (type 'exit')"
         input = gets.strip.downcase
 
         case input
@@ -56,25 +58,24 @@ class BooksCLI::CLI
             @books.clear
             start
         when 'exit'
-            thanks
+            goodbye
         else
-            puts "please choose an option"
+            puts "Please Choose an Option"
             options
         end
-       
     end
 
     def show_list
-        @list = BooksCLI::Books.list
-        @list.each.with_index(1) do |book, index|
-            puts "#{index}. Title: #{book.title}, 
-                Author: #{book.authors}, Publisher: #{book.publisher}"
+       list = BooksCLI::Books.list
+        list.each do |book|
+            puts " "
+            puts "#{book.title} - #{book.authors} - #{book.publisher}"
+            puts " "
         end
         options
     end
     
-    def thanks
+    def goodbye
+        puts "Goodbye"
     end
-     
-   
 end

@@ -19,7 +19,6 @@ class BooksCLI::GoogleApi
             book.title =  item["volumeInfo"]["title"]
             book.authors = item["volumeInfo"]["authors"]
             book.publisher = item["volumeInfo"]["publisher"]
-          
         end
     end
 end

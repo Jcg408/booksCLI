@@ -21,8 +21,11 @@ class BooksCLI::Books
     end
 
     def self.list
-        @@list 
-        binding.pry
+        @@list.each.with_index do |book, index|
+           @list = "#{index}. Title: #{book.title}, 
+           Author: #{book.authors}, Publisher: #{book.publisher}"
+       
+        end
     end
 
     def self.clear
