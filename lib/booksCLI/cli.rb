@@ -1,47 +1,40 @@
 class BooksCLI::CLI
     def call
         puts "Welcome to Book Search"
+        puts "  "
+        puts "Search for a book: "
+        puts "  "
         start
+       options
     end
 
     def start
-        puts "Search Google Books: "
         input = gets.strip.downcase
-        data = BooksCLI::GoogleApi.new(input)
-        
-        data.fetch_data
-        show_list
-        # options
-    end
-
-    def show_list
-        puts "Search Results:"
+        search = BooksCLI::GoogleApi.new(input)
+        search.set_info
         @books = BooksCLI::Books.all
         @books.each.with_index(1) do |book, index|
-            puts "#{index}. Title: #{book.title}, Author(s): #{book.authors}, Publisher: #{book.publisher}"
-        puts "Would you like to save a book to your reading list? (y/n)"
-        input = gets.strip.downcase
-        if input == "yes" || input == "y"
-            save
-        else
-            puts " need options"
+            puts "#{index}. Title: #{book.title}, Author: #{book.authors}, Publisher: #{book.publisher}"
         end
-        # puts out list of books from query
-        # option to save to database 
-       
-        # choose a line number to save a book
-        # need instances of books with index to save
     end
 
-    def save
-        puts "Enter book number to save to the reading list"
+    def options
+        #NEED TO USE CASE FOR OPTIONS
+        #SAVE BOOK, VIEW LIBRARY, START OVER, EXIT
+
+        puts "Save Book to Library (enter line number)"
+       
         input = gets.chomp.to_i
         if input > 0 && input < 6
             puts "You choose book number #{input}."
-            #save book to
-            options
+            save
         else
-            thanks
+            
+        end
+        
+    end
+
+    
         end
         
         #save data to file? db or json file?s
