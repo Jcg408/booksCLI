@@ -16,21 +16,21 @@ Please do NOT add any additional features.
 -----------------
 PROCESS NOTES:
 
-I chose Ruby as the language for this task because the I find the structure of the classes and methods in Ruby more conducive to creating a CLI application than in JavaScript/Node. 
+I chose Ruby as the language for this task because I found the process of implementing the classes and methods in Ruby a bit more logical. 
 
-I chose to use 3 different classes for separation of concern and keep the connections as clear as possible. I also kept the importance of naming conventions, and DRY principle in mind during the process. My testing consisted mostly of using Pry with basic Rspec to test the functionality between classes. 
+I chose to use 3 different classes for separation of concern and single responsibility. I also kept the importance of naming conventions and DRY in mind during the process. My testing consisted mostly of using Pry to check the individual methods and their relationships to the classes.  
 
-I started by stubbing out the CLI class with pseudocode to determine what needed to be presented to the user, then I created the method to fit the request, tested it - got it to work, then moved to the next piece of the puzzle and repeated the steps until I flushed out a whole section.
+I started by stubbing out the CLI class with pseudocode to determine what needed to be presented to the user, then I tested the API data to see how it was returned. I experimented with different query parameters to get the best response back from API. I then created the methods to fit the need, tested it - got it to work, then moved to the next piece of the puzzle and repeated the steps until I flushed out a whole section. 
 
-Once I got the entire program to run, I revisited the user interface (CLI class) to make sure the prompts were user friendly and made sense. I then adapted the code structure to make sure the flow was correct.Then I went back to the other classes and worked on refactoring and drying up the code.
+Once I was able to run the entire program, I revisited the user interface (CLI class) to make sure the prompts were user friendly and made sense. I then adapted the code structure to make sure the flow was correct. Then, I went back to the other classes and worked on refactoring and drying up the code. Finally, I updated the documentation and comments in the code.
 
 I realize there is room for improvement. Some of the spots I would like to revisit are:
 
 1) In the CLI class I have recursive calls to save_book and options, which probably should exit after a set amount of attempts made with invalid input.
 
-2)I can dry up the CLI a bit more by adding helper methods for the input whether string or integer.
+2) I can dry up the CLI a bit more by adding helper methods for the input whether string or integer.
 
-3) 
+3) I am convinced there is a better way to handle the storage of the data besides the class arrays in Book class.
 
 I wanted to use a MVC approach for the classes so I used the googleApi as model, Books as controller and Cli as view.  
 
