@@ -1,6 +1,6 @@
-# Books Class to handle books methods
+# Book Class to handle books methods
 require 'pry'
-class BooksCLI::Books
+class BooksCLI::Book
     
     attr_accessor :title, :authors, :publisher 
 
@@ -9,7 +9,6 @@ class BooksCLI::Books
    
     def initialize
         @@all <<self #initialize the response and push to class array
-      
     end
     
     def self.all #reader method for the API responses
@@ -18,7 +17,6 @@ class BooksCLI::Books
 
     def self.saved(book) # add selected book from CLI to class array
         @@list << book
-       
     end
 
     def self.list

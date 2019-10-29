@@ -13,4 +13,4 @@ Please see assignment.md for requirements of assignment.
 
 Please see notes.md for more information pertaining to development.
 
-Start Program  - ruby ./bin/booksCLI 
+Start Program  - ./bin/booksCLI 

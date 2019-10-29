@@ -13,7 +13,7 @@ class BooksCLI::CLI
         input = gets.strip.downcase #use stripe to remove white space and downcase to normalize the input 
         search = BooksCLI::GoogleApi.new(input) # input sent to GoogleApi
         search.set_info
-        @books = BooksCLI::Books.all    #books are retrieved from Books class
+        @books = BooksCLI::Book.all    #books are retrieved from Books class
         @books.each.with_index(1) do |book, index|  #results are formated to a list with a number for selection
             puts "#{index}. Title: #{book.title}, 
                 Author: #{book.authors}, Publisher: #{book.publisher}"
@@ -33,12 +33,14 @@ class BooksCLI::CLI
         input = gets.chomp.to_i #set condition for valid input with recursive action if not a valid entry.
         if input >0 && input <=@books.size
             book = @books[input -1] #set line numbers by zero index using input -1
-            BooksCLI::Books.saved(book) 
-            puts "Book Saved."
+            BooksCLI::Book.saved(book) 
+            puts " "
+            puts "* Book Saved *"
+            puts " "
             options
         else
             puts "Not a valid entry. Please try again"
-            save_book #Future - want to stop recursion after certain amount of attempts.
+            save_book #recursive : Future - make it exit after a set number of attempts
         end
     end
     
@@ -63,17 +65,17 @@ class BooksCLI::CLI
             goodbye
         else
             puts "Please Choose an Option"
-            options 
+            options #recursive :Future - make it exit after a set number of attempts
         end
     end
 
     def show_list #return Reading List for books chosen.
         puts  "Reading List: "
         puts " " 
-        list = BooksCLI::Books.list 
+        list = BooksCLI::Book.list 
         list.each do |book| # iterate through list to show book list.
             puts " "
-            puts " #{book.title}, #{book.authors}, #{book.publisher}"
+            puts " Title: #{book.title}, Author: #{book.authors}, Publisher: #{book.publisher}"
             puts " "
         end
         options #return back to options menu
