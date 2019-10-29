@@ -12,4 +12,4 @@ The CLI includes the following utilities:
 ADDITIONAL INFORMATION:
 Please see notes.md for assignment requirements and development process
 
-TO start the program in terminal type:  ./bin/booksCLI 
+* To start the program in terminal type:  ./bin/booksCLI 
