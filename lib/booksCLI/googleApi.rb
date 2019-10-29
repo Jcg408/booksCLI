@@ -1,6 +1,7 @@
 require 'httparty'
-
+require 'pry'
 class BooksCLI::GoogleApi
+    
     attr_accessor :input
 
     def initialize(input) #input from CLI class for search query.

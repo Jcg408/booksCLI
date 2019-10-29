@@ -1,4 +1,5 @@
 # Class for User Interface
+require 'pry'
 class BooksCLI::CLI
 
     def call #initial call to start the program. Welcome Screen
@@ -16,7 +17,7 @@ class BooksCLI::CLI
         @books = BooksCLI::Book.all    #books are retrieved from Books class
         @books.each.with_index(1) do |book, index|  #results are formated to a list with a number for selection
             puts "#{index}. Title: #{book.title}, 
-                Author: #{book.authors}, Publisher: #{book.publisher}"
+            Author: #{book.authors}, Publisher: #{book.publisher}"
         end
         puts "Save a Book to Reading List? (Y/N)" #Option to save a book to reading List
         input = gets.strip.downcase
