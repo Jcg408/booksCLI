@@ -32,7 +32,7 @@ I realize there is room for improvement. Some of the spots I would like to revis
 
 3) I am convinced there is a better way to handle the storage of the data besides the class arrays in Book class.
 
-I wanted to use a MVC approach for the classes so I used the googleApi as model, Books as controller and Cli as view.  
+I wanted to use a MVC approach for the classes so I thought of the googleApi as model, Books as controller and Cli as view.  
 
 After sifting through the Google Api documentation I found a way to narrow down the search results to get closer to the title, author and publisher. Otherwise I would have to add extra iterations to get to the desired data. 
 
