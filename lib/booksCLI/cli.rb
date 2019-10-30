@@ -11,11 +11,11 @@ class BooksCLI::CLI
     def start #start the search process. User enters a search term and results are returned
         puts "Search for a book: "
         puts "  "
-        input = gets.strip.downcase #use stripe to remove white space and downcase to normalize the input 
+        input = gets.strip.downcase #use strip to remove white space and downcase to normalize the input 
         search = BooksCLI::GoogleApi.new(input) # input sent to GoogleApi
         search.set_info
         @books = BooksCLI::Book.all    #books are retrieved from Books class
-        @books.each.with_index(1) do |book, index|  #results are formated to a list with a number for selection
+        @books.each.with_index(1) do |book, index|  #results are formatted to a list with a number for selection
             puts "#{index}. Title: #{book.title}, 
             Author: #{book.authors}, Publisher: #{book.publisher}"
         end
