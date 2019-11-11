@@ -1,88 +1,93 @@
 # Class for User Interface
 require 'pry'
-class BooksCLI::CLI
 
+class BooksCLI::CLI
     def call #initial call to start the program. Welcome Screen
-        puts "WELCOME TO BOOK SEARCH"
-        puts "  "
-        start
+        puts "WELCOME TO BOOK SEARCH \n"
+        search
+        save_book
     end
 
-    def start #start the search process. User enters a search term and results are returned
-        puts "Search for a book: "
-        puts "  "
-        input = gets.strip.downcase #use strip to remove white space and downcase to normalize the input 
-        search = BooksCLI::GoogleApi.new(input) # input sent to GoogleApi
+    def search #start the search process. User enters a search term and results are returned
+        puts "Search for a book:  "
+        input_str    #method for string input
+        search = BooksCLI::GoogleApi.new(@input) # input sent to GoogleApi
         search.set_info
         @books = BooksCLI::Book.all    #books are retrieved from Books class
         @books.each.with_index(1) do |book, index|  #results are formatted to a list with a number for selection
             puts "#{index}. Title: #{book.title}, 
             Author: #{book.authors}, Publisher: #{book.publisher}"
         end
-        puts "Save a Book to Reading List? (Y/N)" #Option to save a book to reading List
-        input = gets.strip.downcase
-        if input == "yes" || input == "y" #condition for input either yes or go to another option
-            save_book
-        else
-            options
-        end
     end
 
-    def save_book #method to save the book to the Books class .
-        puts " "
-        puts "Enter Line Number of Book: "
-        input = gets.chomp.to_i #set condition for valid input with recursive action if not a valid entry.
-        if input >0 && input <=@books.size
-            book = @books[input -1] #set line numbers by zero index using input -1
-            BooksCLI::Book.saved(book) 
-            puts " "
-            puts "* Book Saved *"
-            puts " "
-            options
-        else
-            puts "Not a valid entry. Please try again"
-            save_book #recursive : Future - make it exit after a set number of attempts
-        end
+    def save_book 
+        puts "Save a Book to Reading List? (y/n)" #Option to save a book to reading List
+        input_str
+        @input == 'y' ? input_int : options #method to save the book to the Books class .
+        book = @books[@input] 
+        BooksCLI::Book.saved(book) 
+        puts "* Book Saved! * \n"
+        options
     end
-    
+
+    def show_list #return Reading List for books chosen.
+        puts  "Reading List: \n"
+        list = BooksCLI::Book.list 
+        list.each do |book| # iterate through list to show book list.
+            puts " Title: #{book.title}, Author: #{book.authors}, Publisher: #{book.publisher}\n"
+        end
+        options #return back to options menu
+    end
+
     def options #options menu for a new search, view reading list or exit
-        puts "CHOOSE OPTION"
-        puts " "
-        puts "View Reading List? (type 'list')"
-        puts " "
-        puts "New Search? (type 'new')"
-        puts " "
-        puts "Exit program? (type 'exit')"
-        puts " "
-        input = gets.strip.downcase
-
-        case input # conditions for options input. Used case instead of if else format for cleaner code.
+        option_menu
+        input_str
+        case @input # conditions for options input.
         when 'list'
             show_list 
         when 'new'
             @books.clear
-            start
+            search
+            save_book
         when 'exit'
             goodbye
         else
             puts "Please Choose an Option"
-            options #recursive :Future - make it exit after a set number of attempts
+            options 
         end
     end
 
-    def show_list #return Reading List for books chosen.
-        puts  "Reading List: "
-        puts " " 
-        list = BooksCLI::Book.list 
-        list.each do |book| # iterate through list to show book list.
-            puts " "
-            puts " Title: #{book.title}, Author: #{book.authors}, Publisher: #{book.publisher}"
-            puts " "
+    def input_str
+        @input = gets.strip.downcase
+        if @input.empty? || !@input.is_a?(String) 
+            not_valid
+            input_str
         end
-        options #return back to options menu
+    end
+
+    def input_int
+        puts "Enter Line Number of Book: "
+        @input = gets.chomp.to_i
+        if @input.between?(1,6) 
+            @input= @input -1
+        else
+           not_valid
+           input_int
+        end
+    end
+
+    def option_menu
+        puts "CHOOSE OPTION \n"
+        puts "View Reading List? (type 'list')\n"
+        puts "New Search? (type 'new')\n"
+        puts "Exit program? (type 'exit')\n"
+    end
+
+    def not_valid
+        puts 'Entry not valid, please try again'
     end
     
-    def goodbye #exit method
+    def goodbye 
         puts "Goodbye"
     end
 end
