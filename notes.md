@@ -18,7 +18,7 @@ PROCESS NOTES:
 
 I chose Ruby as the language for this task because I found the process of implementing the classes and methods in Ruby a bit more logical. 
 
-I chose to use 3 different classes for separation of concern and single responsibility. I also kept the importance of naming conventions and DRY, format consistency in mind during the process. My testing consisted mostly of using Pry to check the individual methods and their relationships to the classes.  
+I chose to use 3 different classes for separation of concern and single responsibility. I also kept the importance of naming conventions,  DRY, and format consistency in mind during the process. My testing consisted mostly of using Pry to check the individual methods and their relationships to the classes.  
 
 I started by stubbing out the CLI class with pseudocode to determine what needed to be presented to the user, then I tested the API data to see how it was returned. I experimented with different query parameters to get the best response back from API. I then created the methods to fit the need, tested it - got it to work, then moved to the next piece of the puzzle and repeated the steps until I flushed out a whole section. 
 
@@ -32,7 +32,7 @@ I realize there is room for improvement. Some of the spots I would like to revis
 
 3) I am convinced there is a better way to handle the storage of the data besides the class arrays in Book class.
 
-I wanted to use a MVC approach for the classes so I used the googleApi as model, Books as controller and Cli as view.  
+I wanted to use a MVC approach for the classes so I thought of the googleApi as model, Books as controller and Cli as view.  
 
 After sifting through the Google Api documentation I found a way to narrow down the search results to get closer to the title, author and publisher. Otherwise I would have to add extra iterations to get to the desired data. 
 
