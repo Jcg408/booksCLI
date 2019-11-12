@@ -38,12 +38,12 @@ After sifting through the Google Api documentation I found a way to narrow down 
 
 I stored the API key in a .env file which, normally I would place in .gitignore. However, I wasn't sure if the key would be needed for the assessment so I left the .env file for use. I will delete the key once the assessment is over.
 
-UPDATE -
+UPDATE - CLI sent back for refactor. The issues needed to fix:
 
 Code refactor -
 1. (X) Update the Readme file with local dev setup instructions.
 2. (X) Refactor the CLI Class to increase reusability and dry up redundancy.
 3. (X) Test API call to Google Books using WebMock
-4. ( ) Handle API failure with message to user.
+4. (X) Handle API failure with message to user.
 5. () Explanation of lack of test
 6. () How would application need to change if you wanted it to be served as a web app or mobile app? Description.
