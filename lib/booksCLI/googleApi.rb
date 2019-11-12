@@ -13,13 +13,18 @@ class BooksCLI::GoogleApi
     # Use dotenv gem to store credentials
 
    def fetch_data
-    @key = ENV['GOOGLE_API_KEY']
-    url = "https://www.googleapis.com/books/v1/volumes?q=#{@input}&fields=items(volumeInfo/title, volumeInfo/authors, volumeInfo/publisher)&maxResults=5&key=#{@key}"
-    response = HTTParty.get(url)
-   
+    begin
+        @key = ENV['GOOGLE_API_KEY']
+        url = "https://www.googleapis.com/books/v1/volumes?q=#{@input}&fields=items(volumeInfo/title, volumeInfo/authors, volumeInfo/publisher)&maxResults=5&key=#{@key}"
+        response = HTTParty.get(url)
+    rescue StandardError => e
+        puts "No access to Google Books. Please check connection. #{e}"
+        exit
+    end
    end
    # Iteration of data returned to set title, authors and publisher to be used in Books class.
    def set_info
+  
         self.fetch_data["items"].each_with_index do |item, index|
             book = BooksCLI::Book.new
             book.title =  item["volumeInfo"]["title"]
