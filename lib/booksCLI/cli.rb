@@ -30,19 +30,19 @@ class BooksCLI::CLI
         options
     end
 
-    def show_list #return Reading List for books chosen.
+    def show_list 
         puts  "Reading List: \n"
         list = BooksCLI::Book.list 
         list.each do |book| # iterate through list to show book list.
             puts " Title: #{book.title}, Author: #{book.authors}, Publisher: #{book.publisher}\n"
         end
-        options #return back to options menu
+        options 
     end
 
     def options #options menu for a new search, view reading list or exit
         option_menu
         input_str
-        case @input # conditions for options input.
+        case @input 
         when 'list'
             show_list 
         when 'new'
@@ -56,7 +56,8 @@ class BooksCLI::CLI
             options 
         end
     end
-
+    
+    # input methods separated with conditions for reusability
     def input_str
         @input = gets.strip.downcase
         if @input.empty? || !@input.is_a?(String) 
@@ -75,7 +76,8 @@ class BooksCLI::CLI
            input_int
         end
     end
-
+    
+    # string output separated from the options method for easier reusability.
     def option_menu
         puts "CHOOSE OPTION \n"
         puts "View Reading List? (type 'list')\n"
