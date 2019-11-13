@@ -17,4 +17,5 @@ To start the program - ** Note: This application requires an internet connection
 4. Run in terminal by typing ./bin/booksCLI
 
 ADDITIONAL INFORMATION:
-Please see notes.md for assignment requirements and development process
+Please see notes.md for assignment requirements, development process and refactor specs.
+
