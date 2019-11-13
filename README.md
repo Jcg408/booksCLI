@@ -9,6 +9,8 @@ The CLI includes the following utilities:
 3. User can select a book from the 5 displayed to save to a "Reading List"
 4. User can view a "Reading List" which has the books selected from the query - local not part of Google Books.
 
+** Please see notes.md for refactoring information **
+
 ## Getting Started
 
 ** Note: This application requires an internet connection **
@@ -19,8 +21,6 @@ The CLI includes the following utilities:
 
 ## Testing
 1. Run in terminal with `rspec`
-
-
 
 ## License
 
