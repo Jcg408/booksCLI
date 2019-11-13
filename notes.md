@@ -46,7 +46,7 @@ Code refactor -
 2. (X) Refactor the CLI class to increase reusability and dry up redundancy.
 3. (X) Test API call to Google Books using WebMock
 4. (X) Handle API failure with message to user.
-5. () Explanation of lack of test
+5. () Explanation of missing tests.
 6. () How would application need to change if you wanted it to be served as a web app or mobile app? Description.
 
 Refactor notes -
@@ -59,6 +59,6 @@ Mock Test for API - Rspec/webmock test for Googleapi included in features folder
 
 Error Handling for API - error handling included in GoogleApi class for exception.
 
-
+Explanation of missing tests - I regret not adding unit tests to this application. I do understand the importance of testing to ensure a good application. As a student, the assignments were built with tests that had to pass in order to be submitted so I have experience in reading tests in Ruby. However, there was no curriculum that taught test writing. After graduation, when I realized the importance of learning to write tests, I started by learning to write Jest for JavaScript. Unfortunately, I did not get to Ruby testing which I needed for this assignment. I did learn to write basic Rspec tests, but not enough to fully complement this application. I made the decision to submit the project with a mind to focus on principles of good coding skills and good documentation. I have started taking courses on Rspec as well as other testing platforms to improve my skill in testing. I included a basic Mock test for the Google API in the refactor.
 
 
