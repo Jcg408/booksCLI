@@ -23,7 +23,7 @@ class BooksCLI::CLI
     def save_book 
         puts "Save a Book to Reading List? (y/n)" #Option to save a book to reading List
         input_str
-        @input == 'y' ? input_int : options #method to save the book to the Books class .
+        @input == 'y' ? input_int : options  
         book = @books[@input] 
         BooksCLI::Book.saved(book) 
         puts "* Book Saved! * \n"
@@ -57,10 +57,10 @@ class BooksCLI::CLI
         end
     end
     
-    # input methods separated with conditions for reusability
+    # input methods with conditions for reusability
     def input_str
         @input = gets.strip.downcase
-        if @input.empty? || !@input.is_a?(String) 
+        if @input.empty? 
             not_valid
             input_str
         end
@@ -77,7 +77,7 @@ class BooksCLI::CLI
         end
     end
     
-    # string output separated from the options method for easier reusability.
+    # string output separated from the options method for reusability.
     def option_menu
         puts "CHOOSE OPTION \n"
         puts "View Reading List? (type 'list')\n"
