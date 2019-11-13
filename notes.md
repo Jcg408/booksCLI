@@ -46,9 +46,19 @@ Code refactor -
 2. (X) Refactor the CLI class to increase reusability and dry up redundancy.
 3. (X) Test API call to Google Books using WebMock
 4. (X) Handle API failure with message to user.
-5. (X) Explanation of lack of test
+5. () Explanation of lack of test
 6. () How would application need to change if you wanted it to be served as a web app or mobile app? Description.
 
 Refactor notes -
 
-I 
+README file - Includes the instructions for local dev setup.
+
+CLI class - I chose to put input into 2 helper methods for string and integer input. I also extracted some string outputs to methods for reusability. I believe the class is more streamlined and cleaner.
+
+Mock Test for API - Rspec/webmock test for Googleapi included in features folder.
+
+Error Handling for API - error handling included in GoogleApi class for exception.
+
+
+
+
