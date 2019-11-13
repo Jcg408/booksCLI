@@ -14,8 +14,12 @@ The CLI includes the following utilities:
 ** Note: This application requires an internet connection **
 1. Install Ruby on local environment
 2. Clone or download the repository at https://github.com/Jcg408/booksCLI
-3. Bundle install to include gems.
-4. Run in terminal by typing ./bin/booksCLI
+3. `bundle install` to include gems.
+4. Run in terminal with `./bin/booksCLI`
+
+## Testing
+1. Run in terminal with `rspec`
+
 
 
 ## License

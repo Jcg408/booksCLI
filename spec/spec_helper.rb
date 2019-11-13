@@ -1,5 +1,8 @@
 require "webmock/rspec"
 require "capybara/rspec"
+
+require_relative './features/external_request'
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|

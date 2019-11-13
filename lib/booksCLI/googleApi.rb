@@ -22,9 +22,8 @@ class BooksCLI::GoogleApi
         exit
     end
    end
-   # Iteration of data returned to set title, authors and publisher to be used in Books class.
+   
    def set_info
-  
         self.fetch_data["items"].each_with_index do |item, index|
             book = BooksCLI::Book.new
             book.title =  item["volumeInfo"]["title"]
