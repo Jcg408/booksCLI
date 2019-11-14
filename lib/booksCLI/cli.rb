@@ -13,6 +13,10 @@ class BooksCLI::CLI
         input_str    #method for string input
         search = BooksCLI::GoogleApi.new(@input) # input sent to GoogleApi
         search.set_info
+        get_books
+    end
+
+    def get_books
         @books = BooksCLI::Book.all    #books are retrieved from Books class
         @books.each.with_index(1) do |book, index|  #results are formatted to a list with a number for selection
             puts "#{index}. Title: #{book.title}, 
@@ -24,7 +28,7 @@ class BooksCLI::CLI
         puts "Save a Book to Reading List? (y/n)" #Option to save a book to reading List
         input_str
         @input == 'y' ? input_int : options  
-        book = @books[@input] 
+        book = @books[@input]
         BooksCLI::Book.saved(book) 
         puts "* Book Saved! * \n"
         options
