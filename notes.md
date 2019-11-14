@@ -51,16 +51,15 @@ Code refactor -
 
 Refactor notes -
 
-README file - Includes the instructions for local dev setup.
+README file - Includes better instructions for local dev setup. 
 
-CLI class - I chose to put input into 2 helper methods for string and integer input. I also extracted some string outputs to methods for reusability. I believe the class is more streamlined and cleaner.
+CLI class - I split the search method into 2 methods, search and get_books, I moved input for string and integer into 2 helper methods. I also extracted some string outputs to methods for reusability.
 
-Mock Test for API - Rspec/webmock test for Googleapi included in features folder.
+Mock Test for API - I added Rspec/webmock test for the HTTP external request. It is included in spec/features folder.
 
-Error Handling for API - error handling included in GoogleApi class for exception.
+Error Handling for API - error handling included in Googleapi class. Exception is caught and rescued with message to user.
 
-Explanation of missing tests - I regret not being able to add unit tests to this application originally. I do understand the importance of testing to ensure safe and clean code as well as the benefit it gives other developers 
-who may be working with the code. In the Flatiron curriculum, I was fortunate to have TDD built into the lesson assignments. In order to move to the next lesson, the tests had to pass, so I had basic experience in reading tests. However, the curriculum didn't have lessons on writing tests. I realized the true importance of testing after graduation when I started to work on some of my weak areas. Since, I started focusing on JavaScript, I started by learning to write Jest. Unfortunately, I did not get to Ruby testing which I needed for this assignment. I did learn to write basic Rspec tests, but not enough to fully complement this application. I made the decision to submit the project with a focus on good coding principles and good documentation. I felt it would not be beneficial to write poor tests that I had limited time to learn. I have started taking courses on Rspec as well as other testing platforms to improve my skill in testing, which I find to be exciting. I included a basic Mock test for the Google API in the refactor.
+Explanation of missing tests - I regret not being able to add unit tests to this application originally. I do understand the importance of testing to ensure safe and clean code as well as the benefit it gives other developers who may be working with the code. In the Flatiron curriculum, I was fortunate to have TDD built into the lesson assignments. In order to move to the next lesson, the tests had to pass, so I had basic experience in reading tests. However, the curriculum didn't have lessons on writing tests. I realized the true importance of testing after graduation when I started to work on some of my weak areas. Since, I started focusing on JavaScript, I started by learning to write Jest. Unfortunately, I did not get to Ruby testing which I needed for this assignment. I did learn to write basic Rspec tests, but not enough to fully complement this application. I made the decision to submit the project with a focus on good coding principles and good documentation. I felt it would not be beneficial to write poor tests that I had limited time to learn. I have started taking courses on Rspec as well as other testing platforms to improve my skill in testing, which I find to be exciting. I included a basic Mock test for the Google API in the refactor.
 
 Changes needed for web application and mobile application - 
 
@@ -70,3 +69,5 @@ Changes needed for web application and mobile application -
 
  Although, the 2 application styles are different, there is still the need to follow design principles for a good user experience. Wireframing and prototyping the design would be necessary before proceeding with actual coding. Having a clear process and goal will help with the development.
 
+JGladstone
+jcg321@comcast.net
