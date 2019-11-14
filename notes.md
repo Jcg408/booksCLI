@@ -64,9 +64,9 @@ who may be working with the code. In the Flatiron curriculum, I was fortunate to
 
 Changes needed for web application and mobile application - 
 
-In order for this application to become a web application, it would need to be developed with client-server relationship in order to run in the browser. The client interaction would happen through the browser and not through the terminal. The application would also need a server for HTTP requests and access to a database. The application would need to have a front-end and a back-end. Since this app is built with Ruby, it would benefit from a MVC framework like Ruby on Rails or a single page React/Rails application, and a platform for deployment.
+ In order for this application to become a web application, it would need to be developed with client-server relationship in order to run in the browser. The client interaction would happen through the browser and not through the terminal. The application would also need a server for HTTP requests and access to a database. The application would need to have a front-end and a back-end. Since this app is built with Ruby, it would benefit from a MVC framework like Ruby on Rails or a single page React/Rails application, and a platform for deployment.
 
  A mobile application is typically developed for a specific mobile platform. The application is considered native because it is downloaded on the device and is not accessed through a browser. I would need to decide which platform the application is intended for - iOS, Android, etc. and work with the specifications of the platform. Generally, each platform has its own language and IDE. However, if the purpose is to stay in Ruby language there is RubyMotion which is a compiled version of Ruby created for the development of mobile applications. 
 
- Although, the 2 application styles are different, there is still the need to follow design principles for a good user experience. Wireframing and prototyping the design would be necessary before proceeding with actual coding. 
+ Although, the 2 application styles are different, there is still the need to follow design principles for a good user experience. Wireframing and prototyping the design would be necessary before proceeding with actual coding. Having a clear process and goal will help with the development.
 
