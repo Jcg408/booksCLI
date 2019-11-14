@@ -18,7 +18,7 @@ class BooksCLI::GoogleApi
         url = "https://www.googleapis.com/books/v1/volumes?q=#{@input}&fields=items(volumeInfo/title, volumeInfo/authors, volumeInfo/publisher)&maxResults=5&key=#{@key}"
         response = HTTParty.get(url)
     rescue StandardError => e
-        puts "No access to Google Books. Please check connection. #{e}"
+        puts "Google Books unavailable. Please check connecrion. #{e}"
         exit
     end
    end
