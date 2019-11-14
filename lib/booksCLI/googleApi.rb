@@ -11,16 +11,17 @@ class BooksCLI::GoogleApi
     # API call uses HTTParty gem to get hash response
     # Use Google Books API fields parameter to narrow down the returned information for easier iteration through data.
     # Use dotenv gem to store credentials
+    # Catch StandardError errors with begin, rescue
 
    def fetch_data
-    begin
-        @key = ENV['GOOGLE_API_KEY']
-        url = "https://www.googleapis.com/books/v1/volumes?q=#{@input}&fields=items(volumeInfo/title, volumeInfo/authors, volumeInfo/publisher)&maxResults=5&key=#{@key}"
-        response = HTTParty.get(url)
-    rescue StandardError => e
-        puts "Google Books unavailable. Please check connecrion. #{e}"
-        exit
-    end
+        begin
+            @key = ENV['GOOGLE_API_KEY']
+            url = "https://www.googleapis.com/books/v1/volumes?q=#{@input}&fields=items(volumeInfo/title, volumeInfo/authors, volumeInfo/publisher)&maxResults=5&key=#{@key}"
+            response = HTTParty.get(url)
+        rescue StandardError => e
+            puts "Error has occured. Unable to connect to host. Please check your connection."
+            exit
+        end
    end
    
    def set_info
